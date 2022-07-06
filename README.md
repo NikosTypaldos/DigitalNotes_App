@@ -44,3 +44,31 @@
 ## Function searchNoteKey():
 Εμφανίζει όλα τα notes που περιέχουν ενα συγκεκριμένο key endpoint /searchNoteKey;
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177614977-c41d23b5-4b6f-4bd1-bb99-f2ba52d213f7.png)
+
+## Function updateNote():
+Πραγμοτοποιείται η αναζήτηση της σημείωσης και έπειτα αλλαζει τα πεδία που έχουν εισαχθεί απο τον χρήστη endpoint /updateNote. Η αναζήτηση γίνεται με βάση τον τίτλο παράδειγμα:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177618052-68f81122-82db-4ac6-860a-6dfa0b23d040.png)
+Αλλαγμένο note
+![εικόνα](https://user-images.githubusercontent.com/75616736/177618090-f5d24896-aae0-474a-8638-acf721d4fbdc.png)
+
+## Function deleteNote():
+Διαγραφή σημειώματος με βάση τον τίτλο endpoint /deleteNote:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177618299-9cd155dc-0a03-461e-a857-cc3fdcc974a3.png)
+Πηγαίνουμε στην βάση και παρατηρούμε οτι εχει διαγραφεί επιτυχώς:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177618379-d3028aee-13a1-4464-8ed8-de324e2c487a.png)
+
+## Function showNotesChronological():
+Εμφάνιση όλων των note με χρονολογική σειρά. Για την εκτέλεση παραδείγματος δημιουργώ 3 notes με ονομα noteTitle3, noteTitle4, noteTitle5 με αυτή την σειρά χρονολογικά. Το endpoint /showNotesTime δέχεται σαν είσοδο το πεδίο "order" με τιμές είτε "asc" είτε "desc" με βάση πια σείρα θέλει να δεί τα notes. Πχ:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177619244-e440403e-05d2-44b8-811c-8d6348163fcb.png)
+Με ascenting order:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177619312-c09ce8bc-1abb-42ff-ac5f-cca2b7d1310f.png)
+
+
+
+
+## Function deleteAccount():
+Εισαγωγή κωδικού "password" και έπειτα διαγραφή του account με εκείνο τον κωδικό:
+
+
+
+
