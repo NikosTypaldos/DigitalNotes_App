@@ -58,16 +58,42 @@
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177618379-d3028aee-13a1-4464-8ed8-de324e2c487a.png)
 
 ## Function showNotesChronological():
-Εμφάνιση όλων των note με χρονολογική σειρά. Για την εκτέλεση παραδείγματος δημιουργώ 3 notes με ονομα noteTitle3, noteTitle4, noteTitle5 με αυτή την σειρά χρονολογικά. Το endpoint /showNotesTime δέχεται σαν είσοδο το πεδίο "order" με τιμές είτε "asc" είτε "desc" με βάση πια σείρα θέλει να δεί τα notes. Πχ:
+Εμφάνιση όλων των note με χρονολογική σειρά. Για την εκτέλεση παραδείγματος δημιουργώ 3 notes με ονομα noteTitle3, noteTitle4, noteTitle5 με αυτή την σειρά χρονολογικά. Το endpoint /showNotesTime δέχεται σαν είσοδο το πεδίο "order" με τιμές είτε "asc" είτε "desc" με βάση πια σείρα θέλει να δεί τα notes.
+Με descenting order:
+
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177619244-e440403e-05d2-44b8-811c-8d6348163fcb.png)
+
 Με ascenting order:
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177619312-c09ce8bc-1abb-42ff-ac5f-cca2b7d1310f.png)
 
 
-
-
 ## Function deleteAccount():
-Εισαγωγή κωδικού "password" και έπειτα διαγραφή του account με εκείνο τον κωδικό:
+Εισαγωγή του email του χρήστη "email" και έπειτα διαγραφή του client με εκείνο το email (μοναδικό email για κάθε χρήστη για αποφυγή σφαλμάτων) επίσης διαγράφονται και όλα τα note που έχει κάνει αυτός ο χρήστης:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177619859-a96c06f8-1922-42b3-99d1-9e14dc4d0f04.png)
+
+Πηγαίνοντας στην βάση παρατηρούμε ότι ο χρηστης και όλα τα notes του έχουν διαγραφεί:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177619936-8d5697cc-f23f-4b80-b57a-ae861ba37be4.png)
+
+![εικόνα](https://user-images.githubusercontent.com/75616736/177619960-bfbd24a8-1658-4428-b910-ef44258d5a56.png)
+
+## Function createUserAdmin():
+Δημιουργία διαχειριστή με την ίδια διαδικάσια που υπάρχει στο function createUser(). Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /createUserAdmin:
+
+![εικόνα](https://user-images.githubusercontent.com/75616736/177622405-eb65e723-d7b6-4f5a-b963-db6f0c2041bd.png)
+
+Παρακάτω βλέπουμε τον καινουργιο διαχειριστή:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177622473-2abf6511-a662-453e-961b-6e89d14729e1.png)
+
+
+## Function deleteUserAdmin():
+Διαγραφή admin. Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /deleteUserAdmin:
+
+![εικόνα](https://user-images.githubusercontent.com/75616736/177623023-8b0bfc8e-65b5-4715-af21-445d2ec5c774.png)
+
+Επιτυχής διαγραφή:
+![εικόνα](https://user-images.githubusercontent.com/75616736/177623038-16f6424c-f3cf-47b4-8fe3-4d9e88509543.png)
+
+
 
 
 
