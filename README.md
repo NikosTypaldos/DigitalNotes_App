@@ -66,9 +66,11 @@
 
 ## Function deleteNote():
 Διαγραφή σημειώματος με βάση τον τίτλο endpoint /deleteNote:
+
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177618299-9cd155dc-0a03-461e-a857-cc3fdcc974a3.png)
 
 Πηγαίνουμε στην βάση και παρατηρούμε οτι εχει διαγραφεί επιτυχώς:
+
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177618379-d3028aee-13a1-4464-8ed8-de324e2c487a.png)
 
 ## Function showNotesChronological():
