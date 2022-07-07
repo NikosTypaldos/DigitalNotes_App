@@ -19,7 +19,7 @@
     *Εκκίνηση του Docker Image/container , εισαγωγή του κώδικα σε ενα code Editor με την ονομασία app.py εκκίνηση του κώδικα με την επιλογή Flask run
     
 ## WebService
-Σε όλα τα function του προγράμματος πλήν createUser γίνεται έλεγχος μέσω uuid το οποίο δημιουργείτε αυτόματα
+Σε όλα τα function του προγράμματος πλήν createUser γίνεται έλεγχος μέσω uuid το οποίο δημιουργείτε αυτόματα. Μετά απο το login του client δημιουργούνται global variables με τα στοιχεία του για την εύκολη χρήση στις διάφορες μεθόδους.
 
 ## Function create_user():
 Για να κάνουμε νέο χρήστη στέλνουμε ένα request (πχ μεσω Postman) και εισάγουμε τα πεδία username, email, fullname, password και ταυτοχρονα δημιουργείται και ενα στοιχείο και άλλο ενα πεδίο category με τιμη user το οποίο χρησιμοποιώ για τον έλεγχο των δικαιωμάτων παρακάτω screeshot επιτυχούς POST request μεσω postman.
