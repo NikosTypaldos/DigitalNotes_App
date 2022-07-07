@@ -33,7 +33,7 @@ def sessionValidity(client_uuid):
 
 
 @app.route('/')
-@app.route('/createUser', methods=['POST', 'GET'])
+@app.route('/createUser', methods=['POST'])
 def create_user():
     data = None
     if request.method == 'POST':
@@ -88,11 +88,9 @@ def login():
                 global client_category
                 global notes
                 global client_uuid
-                global client_password
                 global client_category
                 client_email = str(data['email'])
                 client_category = str(client1['category'])
-                client_password = str(data['password'])
                 client_uuid = addClientToSession(client_email)
                 client_category = str(client1['category'])
                 return Response(f"Logged in. Your UserID is : {client_uuid} at {time.time()}", status=200, mimetype='application/json')
@@ -202,7 +200,7 @@ def updateNote():
             return Response("bad json content", status=500, mimetype='application/json')
         if data == None:
             return Response("bad request", status=500, mimetype='application/json')
-        if not "title" in data or not "content" in data:
+        if not "title" in data:
             return Response("Information incomplete", status=500, mimetype='application/json')
         else:
             # Update the note
@@ -261,12 +259,12 @@ def deleteAccount():
             return Response("bad json content", status=500, mimetype='application/json')
         if data == None:
             return Response("bad request", status=500, mimetype='application/json')
-        if not "password" in data:
+        if not "email" in data:
             return Response("Information incomplete", status=500, mimetype='application/json')
         else:
             # Delete the account
-            if data['password'] == client_password:
-                clients.delete_one({"password": data["password"]})
+            if data['email'] == client_email:
+                clients.delete_one({"email": data["email"]})
                 notes.delete_many({'clientEmail': str(client_email)})
                 return Response("Account deleted", status=200, mimetype='application/json')
             else:
@@ -307,40 +305,43 @@ def showNotesChronological():
         return Response("bad request", status=500, mimetype='application/json')
 
 
-@app.route('/createΑdmin', methods=['POST'])
+@app.route('/createAdmin', methods=['POST'])
 def createAdmin():
+    data = None
     if (sessionValidity(client_uuid)) == False:
         return Response("Information incomplete", status=401, mimetype="application/json")
 
-    if(client_category != "admin"):
-        return Response("You are not an admin", status=401, mimetype="application/json")
-
-    if request.method == 'POST':
-        # Get the data from the POST request
-        data = None
-        try:
-            data = request.get_json()
-        except Exception as e:
-            return Response("bad json content", status=500, mimetype='application/json')
-        if data == None:
-            return Response("bad request", status=500, mimetype='application/json')
-        if not "username" in data or not "password" in data or not "email" in data:
-            return Response("Information incomplete", status=500, mimetype='application/json')
-        else:
-            # Create the user
-            user = clients.find_one({"username": data['username']})
-            if user != None:
-                return Response("User already exists", status=500, mimetype='application/json')
+    try:
+        data = request.get_json()
+    except Exception as e:
+        return Response("bad json content", status=500, mimetype='application/json')
+    
+    #chek one time password
+    if "otp" in data and data['otp']=="123456":
+        if request.method == 'POST':
+            # Get the data from the POST request
+           
+            if data == None:
+                return Response("bad request", status=500, mimetype='application/json')
+            if not "username" in data or not "password" in data or not "email" in data:
+                return Response("Information incomplete", status=500, mimetype='application/json')
             else:
-                user = clients.find_one({"email": data['email']})
+                # Create the user
+                user = clients.find_one({"username": data['username']})
                 if user != None:
-                    return Response("Email already exists", status=500, mimetype='application/json')
+                    return Response("User already exists", status=500, mimetype='application/json')
                 else:
-                    clients.insert_one({'username': data['username'],
-                                        'email': data['email'],
-                                        'password': data['password'],
-                                        'fullname': data['fullname'], "category": "admin"})
-                    return Response("User created", status=200, mimetype='application/json')
+                    user = clients.find_one({"email": data['email']})
+                    if user != None:
+                        return Response("Email already exists", status=500, mimetype='application/json')
+                    else:
+                        clients.insert_one({'username': data['username'],
+                                            'email': data['email'],
+                                            'password': data['password'],
+                                            'fullname': data['fullname'], "category": "admin"})
+                        return Response("Admin created", status=200, mimetype='application/json')
+    else:
+        return Response("invalid one time password", status=500, mimetype='application/json')
 
 @app.route('/deleteAdmin', methods=['POST'])
 def deleteAdmin():
@@ -368,7 +369,7 @@ def deleteAdmin():
                 return Response("User not found", status=500, mimetype='application/json')
             else:
                 clients.delete_one({"username": data['username']})
-                return Response("User deleted", status=200, mimetype='application/json')
+                return Response("Admin deleted", status=200, mimetype='application/json')
     else:
         return Response("bad request", status=500, mimetype='application/json')
 
