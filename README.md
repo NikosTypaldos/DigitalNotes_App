@@ -14,7 +14,8 @@
    
 ## Λειτουργία εφαρμογής
     
-    *Δημιουργία ενός docker image που συνδέεται με ένα container της MongoDB , εισαγωγή της βάσης δεδομένων InfoSys που περιέχει τα collections "Clients" ,         "Notes" στο image.
+    *Δημιουργία ενός docker image που συνδέεται με ένα container της MongoDB , εισαγωγή της βάσης δεδομένων InfoSys που περιέχει τα collections   "Clients","Notes" στο image.
+    
     *Εκκίνηση του Docker Image/container , εισαγωγή του κώδικα σε ενα code Editor με την ονομασία app.py εκκίνηση του κώδικα με την επιλογή Flask run
     
 ## WebService
