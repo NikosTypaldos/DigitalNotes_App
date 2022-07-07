@@ -96,18 +96,20 @@
 
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177619960-bfbd24a8-1658-4428-b910-ef44258d5a56.png)
 
-## Function createUserAdmin():
-Δημιουργία διαχειριστή με την ίδια διαδικάσια που υπάρχει στο function createUser(). Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /createUserAdmin:
+## Function createAdmin():
+Δημιουργία διαχειριστή με την ίδια διαδικάσια που υπάρχει στο function createUser(). Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /createAdmin:
 
-![εικόνα](https://user-images.githubusercontent.com/75616736/177622405-eb65e723-d7b6-4f5a-b963-db6f0c2041bd.png)
+![εικόνα](https://user-images.githubusercontent.com/75616736/177866137-9f0dc854-0e0a-4ca0-865d-811540efb902.png)
 
 Παρακάτω βλέπουμε τον καινουργιο διαχειριστή:
 
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177622473-2abf6511-a662-453e-961b-6e89d14729e1.png)
 
 
-## Function deleteUserAdmin():
-Διαγραφή admin. Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /deleteUserAdmin:
+Στο πεδίο otp πρέπει να εισαχθεί "otp": "123456"
+
+## Function deleteAdmin():
+Διαγραφή admin. Η διαδικασία αυτη μπορεί να εκτελεστεί μονο απο διαχειριστή "category": "admin" endpoint /deleteAdmin:
 
 ![εικόνα](https://user-images.githubusercontent.com/75616736/177623023-8b0bfc8e-65b5-4715-af21-445d2ec5c774.png)
 
