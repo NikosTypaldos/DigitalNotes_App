@@ -307,8 +307,8 @@ def showNotesChronological():
         return Response("bad request", status=500, mimetype='application/json')
 
 
-@app.route('/createUserAdmin', methods=['POST'])
-def createUserAdmin():
+@app.route('/createΑdmin', methods=['POST'])
+def createAdmin():
     if (sessionValidity(client_uuid)) == False:
         return Response("Information incomplete", status=401, mimetype="application/json")
 
@@ -342,8 +342,8 @@ def createUserAdmin():
                                         'fullname': data['fullname'], "category": "admin"})
                     return Response("User created", status=200, mimetype='application/json')
 
-@app.route('/deleteUserAdmin', methods=['POST'])
-def deleteUserAdmin():
+@app.route('/deleteAdmin', methods=['POST'])
+def deleteAdmin():
     if (sessionValidity(client_uuid)) == False:
         return Response("Information incomplete", status=401, mimetype="application/json")
 
